@@ -1,0 +1,36 @@
+[project]
+name = "gandalf"
+readme = "README.md"
+license = { file = "LICENSE" }
+authors = [{name = "Fazzyt"}]
+requires-python = ">=3.14"
+dynamic = ["version"]
+dependencies = [
+    "aiogram>=3.34.0",
+    "pydantic-settings>=2.16.3",
+]
+
+[tool.ruff]
+line-length = 88
+target-version = "py314"
+force-exclude = true
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM", "RET", "T10"]
+ignore = ["E501"]
+
+[tool.ruff.format]
+quote-style = "double"
+
+[dependency-groups]
+dev = [
+    "prek>=0.5.11",
+    "ruff>=0.17.6",
+]
+
+[build-system]
+requires = ["hatchling", "hatch-vcs"]
+build-backend = "hatchling.build"
+
+[tool.hatch.version]
+source = "vcs"
